@@ -1,10 +1,6 @@
 import React, { FormEvent, useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { StringifyOptions } from 'node:querystring';
-import { queryAllByAltText } from '@testing-library/dom';
 import { IRecipe } from './IRecipe';
-import Recipe from './RecipeComponent';
 import RecipeComponent from './RecipeComponent';
 
 function App() {
