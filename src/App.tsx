@@ -18,9 +18,11 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const query = encodeURIComponent(recipeSearch);
-      const response = await searchForRecipes(query);
-      setRecipesFound(response);
+      if (recipeSearch) {
+        const query = encodeURIComponent(recipeSearch);
+        const response = await searchForRecipes(query);
+        setRecipesFound(response);
+      }
     })();
   }, [recipeSearch]);
 
@@ -41,7 +43,7 @@ function App() {
       </form>
       {recipeSearch && <p>Results for {recipeSearch}...</p>}
       <div className="recipes-container">
-        {recipesFound.length &&
+        {recipesFound.length > 0 &&
           recipesFound.map(recipe =>
             (<RecipeComponent key={recipe.href} recipe={recipe}></RecipeComponent>))
         }
