@@ -12,6 +12,8 @@
     "@types/react-dom": "^17.0.1",
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
+    "http-proxy-middleware": "^0.19.1",
+    "netlify-lambda": "^2.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
@@ -19,9 +21,9 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "api:serve": "node server",
+    "api:serve": "netlify-lambda serve .netlify/functions",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "netlify-lambda build .netlify/functions && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
